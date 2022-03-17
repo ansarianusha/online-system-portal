@@ -8,10 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="user_Table")
 public class User_Table {
 
 	@Id
@@ -31,9 +29,9 @@ public class User_Table {
 	private LocalDate dob;
 
 	private String password;
-	
-	@OneToMany(mappedBy="user_table")
-	private List<Exam>exam;
+
+	@OneToMany(mappedBy = "user_Table")
+	private List<Exam> exam;
 
 	public int getUser_Id() {
 		return user_Id;
@@ -98,6 +96,5 @@ public class User_Table {
 	public void setExam(List<Exam> exam) {
 		this.exam = exam;
 	}
-	
-	
+
 }
