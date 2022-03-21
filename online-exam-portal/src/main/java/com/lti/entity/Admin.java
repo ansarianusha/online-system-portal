@@ -16,7 +16,7 @@ public class Admin {
 	@Id
 	@GeneratedValue
 	private int admin_Id;
-
+//hii
 	private String admin_Name;
 
 	@Column(unique = true)
