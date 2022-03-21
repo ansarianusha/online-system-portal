@@ -1,27 +1,28 @@
-
 package com.lti.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "result")
 public class Result {
 	@Id
 	@GeneratedValue
 	private int result_Id;
+	
+	private String status;
+	private double score;
+	private int rlevel;
+	@ManyToOne
+	@JoinColumn(name="subject_Id")
+	private Subject subject1;
+	
 	@OneToOne
-	@JoinColumn(name = "exam_Id")
-	private Exam exam;
-	@OneToOne
-	@JoinColumn(name = "user_Id")
-	private User_Table user_table;
-	private boolean status;
-	private float score;
+	@JoinColumn(name="user_Id")
+	private Users users;
 
 	public int getResult_Id() {
 		return result_Id;
@@ -31,35 +32,47 @@ public class Result {
 		this.result_Id = result_Id;
 	}
 
-	public Exam getExam() {
-		return exam;
-	}
-
-	public void setExam(Exam exam) {
-		this.exam = exam;
-	}
-
-	public User_Table getUser_table() {
-		return user_table;
-	}
-
-	public void setUser_table(User_Table user_table) {
-		this.user_table = user_table;
-	}
-
-	public boolean isStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	public float getScore() {
+	public double getScore() {
 		return score;
 	}
 
-	public void setScore(float score) {
+	public void setScore(double score) {
 		this.score = score;
 	}
+
+	public int getRlevel() {
+		return rlevel;
+	}
+
+	public void setRlevel(int rlevel) {
+		this.rlevel = rlevel;
+	}
+
+	public Subject getSubject() {
+		return subject1;
+	}
+
+	public void setSubject(Subject subject) {
+		this.subject1 = subject;
+	}
+
+	public Users getUsers() {
+		return users;
+	}
+
+	public void setUsers(Users users) {
+		this.users = users;
+	}
+	
+	
+
+
 }
